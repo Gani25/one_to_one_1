@@ -97,6 +97,13 @@ public class InstructorController {
 
     }
 
+    @DeleteMapping("/instructor/{instructorId}")
+    public Instructor deleteInstructor(@PathVariable int instructorId) {
+        Instructor existingInstructor = getInstructorById(instructorId);
+        instructorRepository.delete(existingInstructor);
+        return existingInstructor;
+    }
+
 
 }
 
